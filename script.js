@@ -104,7 +104,7 @@ function removeFromCart(itemId) {
     renderCartItems();
 }
 
-// Checkout
+// Ganti fungsi checkout() yang lama dengan ini:
 function checkout() {
     if (cart.length === 0) {
         alert('Keranjang kosong!');
@@ -112,10 +112,74 @@ function checkout() {
     }
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    alert(`Pesanan diterima! Total: Rp ${total.toLocaleString()}\nSilakan tunggu pelayan datang ya! 😊`);
+    
+    // Buka Payment Modal
+    showPaymentModal(total);
+}
+
+// Tambah fungsi payment modal
+function showPaymentModal(total) {
+    const paymentModal = `
+        <div class="modal payment-modal" id="paymentModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>💳 Pilih Pembayaran</h2>
+                    <span class="close" onclick="closePaymentModal()">&times;</span>
+                </div>
+                <div class="payment-options">
+                    <div class="payment-method active" onclick="selectPayment('transfer')">
+                        <div class="payment-icon">🏦</div>
+                        <div class="payment-title">Transfer Bank</div>
+                        <div class="bank-details" id="bankDetails" style="display: none;">
+                            <strong>BNI</strong><br>
+                            284027212<br>
+                            a/n WARKOP DIGITAL
+                        </div>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment('qris')">
+                        <div class="payment-icon">📱</div>
+                        <div class="payment-title">QRIS</div>
+                        <div>Coming Soon</div>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment('cash')">
+                        <div class="payment-icon">💵</div>
+                        <div class="payment-title">Cash</div>
+                        <div>Bayar ke pelayan</div>
+                    </div>
+                </div>
+                <div class="cart-total">
+                    <strong>Total: Rp ${total.toLocaleString()}</strong>
+                </div>
+                <button class="btn-checkout" onclick="confirmPayment(${total})">✅ Konfirmasi Pesanan</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', paymentModal);
+}
+
+// Payment functions
+function selectPayment(method) {
+    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+    event.target.closest('.payment-method').classList.add('active');
+    
+    if (method === 'transfer') {
+        document.getElementById('bankDetails').style.display = 'block';
+    }
+}
+
+function closePaymentModal() {
+    document.getElementById('paymentModal').remove();
+}
+
+function confirmPayment(total) {
+    alert(`✅ Pesanan diterima!\nTotal: Rp ${total.toLocaleString()}\nSilakan transfer ke BNI 284027212\natau tunggu pelayan! ☕`);
+    
+    // Reset cart
     cart = [];
     updateCartUI();
     document.getElementById('cartModal').style.display = 'none';
+    closePaymentModal();
 }
 
 // Category Filter
