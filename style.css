@@ -369,3 +369,210 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Kasir Dashboard Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-refresh, .btn-clear {
+    background: linear-gradient(45deg, #17a2b8, #20c997);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-refresh:hover, .btn-clear:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(23,162,184,0.4);
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.order-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 25px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.order-card.pending {
+    border-color: #ffc107;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.order-card.served {
+    border-color: #28a745;
+    opacity: 0.8;
+}
+
+.order-card.complete {
+    border-color: #17a2b8;
+}
+
+.order-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-pending { background: rgba(255,193,7,0.2); color: #ffc107; }
+.status-served { background: rgba(40,167,69,0.2); color: #28a745; }
+.status-complete { background: rgba(23,162,184,0.2); color: #17a745; }
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 30px rgba(255,193,7,0.3); }
+    50% { box-shadow: 0 0 40px rgba(255,193,7,0.5); }
+    100% { box-shadow: 0 0 30px rgba(255,193,7,0.3); }
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(248,249,250,0.6);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 25px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffc107;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffc107, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: rgba(248,249,250,0.8);
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: rgba(255,255,255,0.15);
+    color: #f8f9fa;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 2px solid rgba(255,193,7,0.3);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(45deg, #ffc107, #ff8c42);
+    color: #1a1a2e;
+    border-color: #ffc107;
+    transform: translateY(-2px);
+}
+
+.filter-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.filter-group input {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,193,7,0.3);
+    color: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.filter-group input::placeholder {
+    color: rgba(248,249,250,0.6);
+}
+
+.order-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,193,7,0.3);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.btn-serve, .btn-complete {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-serve:hover, .btn-complete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(40,167,69,0.4);
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        width: 100%;
+    }
+}
