@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖥️ Kasir - Warkop Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Kasir -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🖥️ KASIR DASHBOARD</h1>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">👤 Customer</a>
+                <a href="audit.html" class="nav-btn">📊 Audit Log</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>📋 Pesanan Pending (<span id="pendingCount">0</span>)</h2>
+                <button class="btn-refresh" onclick="loadOrders()">🔄 Refresh</button>
+            </div>
+
+            <!-- Pending Orders -->
+            <div class="orders-grid" id="pendingOrders">
+                <div class="empty-state">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">☕</div>
+                    <h3>Tidak ada pesanan</h3>
+                    <p>Customer sedang santai nih...</p>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalToday">Rp 0</div>
+                    <div class="stat-label">Pendapatan Hari Ini</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="ordersToday">0</div>
+                    <div class="stat-label">Pesanan Hari Ini</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
