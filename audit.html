@@ -1,45 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📊 Audit Log - Warkop Digital</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Audit</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Audit -->
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">📊 AUDIT LOG</h1>
-            <div class="nav-links">
-                <a href="index.html" class="nav-btn">👤 Customer</a>
-                <a href="kasir.html" class="nav-btn">🖥️ Kasir</a>
-            </div>
-        </div>
-    </header>
 
-    <main class="main">
-        <div class="container">
-            <div class="dashboard-header">
-                <h2>📈 Riwayat Transaksi</h2>
-                <div class="filter-group">
-                    <input type="date" id="dateFilter" onchange="filterAudit()">
-                    <button class="btn-clear" onclick="clearFilter()">Clear</button>
-                </div>
-            </div>
+<h1>📊 Audit</h1>
 
-            <div class="orders-grid" id="auditOrders">
-                <div class="empty-state">
-                    <div style="font-size: 4rem;">📈</div>
-                    <h3>Belum ada transaksi</h3>
-                </div>
-            </div>
-        </div>
-    </main>
+<div id="auditOrders"></div>
 
-    <script src="script.js"></script>
-    <script type="module" src="firebase.js"></script>
 <script type="module" src="script.js"></script>
 </body>
 </html>
