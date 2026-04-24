@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warkop Digital - Pesen Makanan Minuman</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">☕ WARKOP DIGITAL</h1>
+            <div class="cart-info">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+                <span class="total-price" id="totalPrice">Rp 0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keranjang Pesanan</h2>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: <span id="cartTotal">Rp 0</span></strong>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">⏰ Checkout & Bayar</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Cari kopi, nasi, dll...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <!-- Menu Categories -->
+            <div class="categories">
+                <button class="category-btn active" data-category="all">Semua</button>
+                <button class="category-btn" data-category="kopi">Kopi ☕</button>
+                <button class="category-btn" data-category="makanan">Makanan 🍚</button>
+                <button class="category-btn" data-category="minuman">Minuman 🧃</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items akan dimuat oleh JS -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
