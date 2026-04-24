@@ -1,64 +1,26 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warkop Digital - Pesen Makanan Minuman</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warkop Digital</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">☕ WARKOP DIGITAL</h1>
-            <div class="cart-info">
-                <span class="cart-icon">🛒</span>
-                <span class="cart-count" id="cartCount">0</span>
-                <span class="total-price" id="totalPrice">Rp 0</span>
-            </div>
-        </div>
-    </header>
 
-    <!-- Cart Modal -->
-    <div class="modal" id="cartModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Keranjang Pesanan</h2>
-                <span class="close" id="closeModal">&times;</span>
-            </div>
-            <div class="cart-items" id="cartItems"></div>
-            <div class="cart-total">
-                <strong>Total: <span id="cartTotal">Rp 0</span></strong>
-            </div>
-            <button class="btn-checkout" onclick="checkout()">Checkout</button>
-        </div>
-    </div>
+<h1>☕ Warkop Digital</h1>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Cari kopi, nasi, dll...">
-                <span class="search-icon">🔍</span>
-            </div>
+<div id="menu">
+    <button onclick="addToCart('Kopi Hitam',10000)">Kopi Hitam - 10k</button>
+    <button onclick="addToCart('Es Teh',5000)">Es Teh - 5k</button>
+    <button onclick="addToCart('Indomie',12000)">Indomie - 12k</button>
+</div>
 
-            <!-- Menu Categories -->
-            <div class="categories">
-                <button class="category-btn active" data-category="all">Semua</button>
-                <button class="category-btn" data-category="kopi">Kopi ☕</button>
-                <button class="category-btn" data-category="makanan">Makanan 🍚</button>
-                <button class="category-btn" data-category="minuman">Minuman 🧃</button>
-            </div>
+<h3>Cart: <span id="cartCount">0</span></h3>
+<h3>Total: <span id="totalPrice">0</span></h3>
 
-            <!-- Menu Grid -->
-            <div class="menu-grid" id="menuGrid">
-                <!-- Menu items akan dimuat oleh JS -->
-            </div>
-        </div>
-    </main>
-<script type="module" src="firebase.js"></script>
+<button onclick="checkout()">Checkout</button>
+
 <script type="module" src="script.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
