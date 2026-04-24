@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     min-height: 100vh;
-    color: #333;
+    color: #f8f9fa;
 }
 
 .container {
@@ -17,11 +17,12 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - Warkop Style */
 .header {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 193, 7, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -31,147 +32,184 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 1.2rem 20px;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ff6b6b;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffc107, #ff6b35, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
 }
 
 .cart-info {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #ff6b6b;
+    gap: 12px;
+    background: linear-gradient(45deg, #ff6b35, #ff8c42);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
 }
 
 /* Search Bar */
 .search-bar {
     position: relative;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
     max-width: 500px;
 }
 
 .search-bar input {
     width: 100%;
-    padding: 15px 50px 15px 20px;
-    border: none;
+    padding: 18px 60px 18px 25px;
+    border: 2px solid rgba(255, 193, 7, 0.3);
     border-radius: 50px;
-    font-size: 1rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    outline: none;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.1);
+    color: #f8f9fa;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: rgba(248,249,250,0.7);
+}
+
+.search-bar input:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+    background: rgba(255,255,255,0.15);
 }
 
 .search-icon {
     position: absolute;
-    right: 20px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #ffc107;
 }
 
 /* Categories */
 .categories {
     display: flex;
-    gap: 10px;
-    margin-bottom: 2rem;
+    gap: 15px;
+    margin-bottom: 2.5rem;
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .category-btn {
-    background: rgba(255,255,255,0.8);
-    border: none;
-    padding: 12px 24px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    color: #f8f9fa;
+    padding: 15px 28px;
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     white-space: nowrap;
+    backdrop-filter: blur(10px);
 }
 
 .category-btn:hover,
 .category-btn.active {
-    background: #ff6b6b;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+    background: linear-gradient(45deg, #ffc107, #ff8c42);
+    border-color: #ffc107;
+    color: #1a1a2e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4);
 }
 
 /* Menu Grid */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
 }
 
 .menu-card {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
 
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35, #ffc107, #ff8c42);
+}
+
 .menu-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    border-color: rgba(255, 193, 7, 0.5);
 }
 
 .menu-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    filter: brightness(1.1) contrast(1.1);
 }
 
 .menu-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #f8f9fa, #ffc107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
 }
 
 .menu-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ff6b6b;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffc107;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    margin-bottom: 1.2rem;
 }
 
 .menu-desc {
-    color: #666;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
+    color: rgba(248,249,250,0.8);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
 }
 
 .btn-order {
     width: 100%;
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-    color: white;
+    background: linear-gradient(45deg, #ff6b35, #ff8c42, #ffc107);
+    color: #1a1a2e;
     border: none;
-    padding: 15px;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 18px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
 }
 
 .btn-order:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6);
 }
 
 /* Modal */
@@ -182,9 +220,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
 }
 
 .modal-content {
@@ -192,49 +230,61 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
-    border-radius: 20px;
-    max-width: 500px;
+    background: rgba(26, 26, 46, 0.98);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 25px;
+    max-width: 550px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
 .modal-header {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
+    padding: 25px;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.modal-header h2 {
+    color: #ffc107;
+    font-weight: 700;
+}
+
 .close {
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
-    color: #999;
+    color: #f8f9fa;
+    transition: 0.3s;
 }
 
 .close:hover {
-    color: #333;
+    color: #ffc107;
+    transform: rotate(90deg);
 }
 
 .cart-items {
-    padding: 20px;
+    padding: 25px;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.2);
 }
 
 .cart-total {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    font-size: 1.3rem;
-    border-top: 2px solid #ff6b6b;
+    font-size: 1.5rem;
+    border-top: 3px solid #ffc107;
+    background: rgba(255, 193, 7, 0.1);
+    color: #f8f9fa;
 }
 
 .btn-checkout {
@@ -242,28 +292,80 @@ body {
     background: linear-gradient(45deg, #28a745, #20c997);
     color: white;
     border: none;
-    padding: 20px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border-radius: 0 0 20px 20px;
+    padding: 25px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    border-radius: 0 0 25px 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .btn-checkout:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(40,167,69,0.4);
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(40,167,69,0.5);
+}
+
+/* Payment Modal */
+.payment-modal {
+    background: rgba(15, 52, 96, 0.98);
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 25px;
+}
+
+.payment-method {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.payment-method:hover,
+.payment-method.active {
+    border-color: #ffc107;
+    background: rgba(255, 193, 7, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 193, 7, 0.3);
+}
+
+.payment-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.payment-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.bank-details {
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: #ffc107;
+    text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
-    .header .container {
-        flex-direction: column;
-        gap: 10px;
+    .logo {
+        font-size: 1.5rem;
     }
 }
