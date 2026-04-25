@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warkop Digital</title>
-<link rel="stylesheet" href="style.css">
+  <title>WanMoein Kopi</title>
 </head>
 <body>
+  <h1>Menu</h1>
 
-<h1>☕ Warkop Digital</h1>
+  <button onclick="order('Es Kopi Susu')">Es Kopi Susu</button>
+  <button onclick="order('Americano')">Americano</button>
 
-<div id="menu">
-    <button onclick="addToCart('Kopi Hitam',10000)">Kopi Hitam - 10k</button>
-    <button onclick="addToCart('Es Teh',5000)">Es Teh - 5k</button>
-    <button onclick="addToCart('Indomie',12000)">Indomie - 12k</button>
-</div>
+  <script type="module">
+    import { db } from './firebase.js';
+    import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-<h3>Cart: <span id="cartCount">0</span></h3>
-<h3>Total: <span id="totalPrice">0</span></h3>
+    const params = new URLSearchParams(window.location.search);
+    const meja = params.get("meja") || "unknown";
 
-<button onclick="checkout()">Checkout</button>
+    async function order(menu) {
+      await addDoc(collection(db, "orders"), {
+        menu,
+        meja,
+        status: "pending",
+        waktu: new Date()
+      });
 
-<script type="module" src="script.js"></script>
+      alert("Pesanan dikirim!");
+    }
+
+    window.order = order;
+  </script>
 </body>
 </html>
